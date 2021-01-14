@@ -1,13 +1,5 @@
 <?php
 
-$clear_cmd = match(PHP_OS_FAMILY) {
-    'Windows' => 'cls',
-    'BSD', 'Darwin', 'Solaris', 'Linux' => 'clear',
-    default => throw new Error('Unknown operating system!'),
-};
-
-system($clear_cmd);
-
 require_once 'src/ToString.php';
 require_once 'src/Rectangle.php';
 require_once 'src/Circle.php';
@@ -15,7 +7,16 @@ require_once 'src/Circle.php';
 use Shapes\Rectangle;
 use Shapes\Circle;
 
-if (php_sapi_name() !== 'cli') {
+
+if (php_sapi_name() === 'cli') {
+    $clear_cmd = match(PHP_OS_FAMILY) {
+    'Windows' => 'cls',
+    'BSD', 'Darwin', 'Solaris', 'Linux' => 'clear',
+    default => throw new Error('Unknown operating system!'),
+    };
+
+        system($clear_cmd);
+} else {
     echo '<pre>';
 }
 
