@@ -8,6 +8,7 @@ $clear_cmd = match(PHP_OS_FAMILY) {
 
 system($clear_cmd);
 
+require_once 'src/ToString.php';
 require_once 'src/Rectangle.php';
 require_once 'src/Circle.php';
 
