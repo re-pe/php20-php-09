@@ -15,6 +15,10 @@ require_once 'src/Circle.php';
 use Shapes\Rectangle;
 use Shapes\Circle;
 
+if (php_sapi_name() !== 'cli') {
+    echo '<pre>';
+}
+
 $rectangle = new Rectangle(1, 1, 3, 3);
 
 echo "\n\$rectangle === ", $rectangle, "\n";
@@ -70,4 +74,8 @@ foreach ($points as $point) {
     echo "\n\$circle->isPointInside({$point[0]}, {$point[1]}) === ",
           var_export($circle->isPointInside(...$point), true),
           "\n";
+}
+
+if (php_sapi_name() !== 'cli') {
+    echo '</pre>';
 }
