@@ -2,18 +2,12 @@
 
 namespace Shapes;
 
-require_once 'src/ToString.php';
-
 class Rectangle
 {
     use ToString;
 
-    public function __construct(
-        private float $x1,
-        private float $y1,
-        private float $x2,
-        private float $y2,
-    ) {
+    public function __construct(private float $x1, private float $y1, private float $x2, private float $y2)
+    {
         if ($x2 < $x1) {
             list($this->x1, $this->x2) = [$x2, $x1];
         }

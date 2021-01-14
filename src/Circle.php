@@ -2,17 +2,12 @@
 
 namespace Shapes;
 
-require_once 'src/ToString.php';
-
 class Circle
 {
     use ToString;
 
-    public function __construct(
-        private float $x,
-        private float $y,
-        private float $r,
-    ) {
+    public function __construct(private float $x, private float $y, private float $r)
+    {
     }
 
     public function __get($name): mixed
